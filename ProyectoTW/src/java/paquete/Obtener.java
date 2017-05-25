@@ -35,32 +35,29 @@ public class Obtener extends HttpServlet {
         PrintWriter out = response.getWriter();
         ServletContext context= request.getServletContext();
         String path= context.getRealPath("/")+"users.xml";
+        HttpSession session = request.getSession();
+        int id = Integer.parseInt((String)session.getAttribute("id"));
 
             SAXBuilder saxBuilder = new SAXBuilder();
             File inputFile = new File(path);
 
             try {
-                    ArrayList nombres = new ArrayList();
-                    ArrayList ids = new ArrayList();
-                                        ArrayList userslist = new ArrayList();
+                Document document = (Document) saxBuilder.build(inputFile);
+                Element rootElement = document.getRootElement();
+                ArrayList respuesta = new ArrayList();
 
-                    Document document = (Document) saxBuilder.build(inputFile);
-                    Element rootElement = document.getRootElement();
-
-
-                    //Leemos el archivo XML
-                    List<Element> list = rootElement.getChildren("user");
-                    for (int cont = 0; cont < list.size(); cont++) {
-                        Element users = list.get(cont);
-                        nombres.add(users.getChildText("name"));  
-                        ids.add(users.getAttributeValue("id"));
-                    }
-                    userslist.add(nombres);
-                    userslist.add(ids);
-                     String JSONresponse = new Gson().toJson(userslist);
-                        
-                    out.write(JSONresponse);
-                    out.flush();
+                List<Element> list = rootElement.getChildren("user");
+                Element user = list.get(id-1);
+                
+                respuesta.add(user.getAttributeValue("id"));
+                respuesta.add(user.getChildText("name"));
+                respuesta.add(user.getChildText("mail"));
+                respuesta.add(user.getChildText("type"));
+                
+                String JSONresponse = new Gson().toJson(respuesta);                
+                
+                out.write(JSONresponse);
+                out.flush();
 
                 }catch(Exception ex) {
                     ex.printStackTrace();	

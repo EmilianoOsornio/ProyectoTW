@@ -1,3 +1,7 @@
+$(function(){
+   isLoggedIn();
+});
+
 $("#btn-submit").click(function(e) {
     e.preventDefault();
     $.ajax({

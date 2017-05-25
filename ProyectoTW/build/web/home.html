@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/jsxgraph.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-11 col-xs-offset-1 col-md-8 col-md-offset-2">
+                    <h1 id="greetings"></h1>
+                    <small id="mail"></small>
+                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;"></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jsxgraph.js"></script>                
+        <script src="js/loginVal.js"></script>
+        <script src="js/home.js"></script>    
+        <script type="text/javascript">
+        var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-5, 2, 5, -2]});
+        var p1 = b.create('point',[-1,1], {name:'A',size:4});
+        var p2 = b.create('point',[2,-1], {name:'B',size:4});
+        var li = b.create('line',["A","B"], {strokeColor:'#00ff00',strokeWidth:2});
+        console.log("punto", p1.coords.usrCoords);
+        console.log("punto", p2.coords.usrCoords);
+        console.log("linea", li);
+       </script>
+    </body>
+</html>

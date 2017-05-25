@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session=request.getSession();
         if(session.getAttribute("loggedIn")!=null && (boolean)session.getAttribute("loggedIn")) {
-            response.sendRedirect("Inicio");
+            response.sendRedirect("home.html");
         }
         else {
             response.sendRedirect("");
