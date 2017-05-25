@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Modificar</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- viewport settings -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-md-offset-4">
+                    <h1 id="userTitle">Modificar Usuario</h1>
+                        <form id="modificarForm" >
+                            <div class="form-group" id="idInput">
+                                <input type="hidden" class="form-control" id="id" name="id">
+                            </div>
+                            <div class="form-group" id="userInput">
+                                <label for="usuario">Usuario</label>
+                                <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" required>
+                            </div>
+                            <div class="form-group" id="emailInput">
+                                <label for="correo">Correo</label>
+                                <input type="email" class="form-control" id="correo" placeholder="Correo" name="correo" required>
+                            </div>
+                            <div class="form-group" id="passwordInput">
+                                <label for="contra">Contraseña</label>
+                                <input type="password" class="form-control" id="pass" placeholder="Contraseña" name="contra" required>
+                            </div>
+                            <div class="form-group" id="password2Input">
+                                <label for="contra2">Confirma tu contraseña</label>
+                                <input type="password" class="form-control" id="pass_confirm" placeholder="Confirmar contraseña" name="contra2" required>
+                            </div>
+                            <select class="form-control" name="tipo" id="tipo">
+                                <option value='admin'>Administrador </option>
+                                <option value='estudiante'>Estudiante </option>
+                                <option value='profesor'>Profesor </option>
+                            </select>
+                            <br>
+                            <button class="btn btn-default" id="btn-modificar">Modificar</button>
+                            <input type="submit" value="Modificar" class="btn btn-default" id="btn-submit" style="display: none;"/>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>  
+        <script src="js/global.js"></script>
+        <script src="js/loginVal.js"></script>
+        <script src="js/modificar.js"></script>
+        <script src="js/validator.js"></script>
+    </body>
+</html>

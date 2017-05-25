@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user id="1">
+    <name>Primero</name>
+    <mail>primer@gmail.com</mail>
+    <pass>123</pass>
+    <type>admin</type>
+  </user>
+  <user id="2">
+    <name>profesor</name>
+    <mail>profe@hotmail.com</mail>
+    <pass>profe</pass>
+    <type>profesor</type>
+  </user>
+  <user id="3">
+    <name>estudianteMod</name>
+    <mail>estudiante@mail.com</mail>
+    <pass>123</pass>
+    <type>estudiante</type>
+  </user>
+  <user id="4">
+    <name>ELVACA</name>
+    <mail>arre@mijo</mail>
+    <pass>123</pass>
+    <type>profesor</type>
+  </user>
+  <user id="5">
+    <name>user1</name>
+    <mail>arre@mijo</mail>
+    <pass>123</pass>
+    <type>admin</type>
+  </user>
+  <user id="6">
+    <name>Prueb</name>
+    <mail>p@a</mail>
+    <pass>123</pass>
+    <type>estudiante</type>
+  </user>
+  <user id="7">
+    <name>PruebaYas</name>
+    <mail>a@f</mail>
+    <pass>1234</pass>
+    <type>admin</type>
+  </user>
+  <user id="8">
+    <name>Ahorita</name>
+    <mail>a@a</mail>
+    <pass>123</pass>
+    <type>estudiante</type>
+  </user>
+</users>
+
