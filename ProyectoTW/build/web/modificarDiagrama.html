@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/jsxgraph.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1>Modifica tu diagrama</h1>
+                    <form id="diagramamForm">
+                        Nombre: <input type="text" name="name" id="name" required /> 
+                        <input type="hidden" id="id" name="id" />
+                        <input type="hidden" id="p1a" name="p1a" />
+                        <input type="hidden" id="p1b" name="p1b" />
+                        <input type="hidden" id="p2a" name="p2a" />
+                        <input type="hidden" id="p2b" name="p2b" />
+                        <button class="btn btn-default" id="btn-modifyPlot">Guardar Diagrama</button>
+                        <input type="submit" value="ModificarDiagrama" class="btn btn-default" id="btn-submitmPlot" style="display: none;"/>
+                    </form>
+                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;"></div>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/modificarDiagrama.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jsxgraph.js"></script>                
+        <script src="js/loginVal.js"></script>
+        <script src="js/global.js"></script>
+    </body>
+</html>
+

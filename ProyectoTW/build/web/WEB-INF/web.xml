@@ -40,6 +40,14 @@
         <servlet-name>Acceso</servlet-name>
         <servlet-class>paquete.Acceso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarDiagrama</servlet-name>
+        <servlet-class>paquete.GuardarDiagrama</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarDiagrama</servlet-name>
+        <servlet-class>paquete.ModificarDiagrama</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Eliminar</servlet-name>
         <url-pattern>/Eliminar</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>Acceso</servlet-name>
         <url-pattern>/Acceso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarDiagrama</servlet-name>
+        <url-pattern>/GuardarDiagrama</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarDiagrama</servlet-name>
+        <url-pattern>/ModificarDiagrama</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
