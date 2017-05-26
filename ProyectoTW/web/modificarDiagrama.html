@@ -14,18 +14,41 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid">
-            <h1>Modifica tu diagrama</h1>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Modificar diagrama</h1>
+                </div>
+                <div class="col-xs-12 col-md-6 text-center">                    
+                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;  display: inline-block; margin-top: 1rem;"></div>
+                </div>
+                <div class="col-xs-12 col-md-6">
                     <form id="diagramamForm">
-                        Nombre: <input type="text" name="name" id="name" required /> 
                         <input type="hidden" id="id" name="id" />
-                        <input type="hidden" id="p1a" name="p1a" />
-                        <input type="hidden" id="p1b" name="p1b" />
-                        <input type="hidden" id="p2a" name="p2a" />
-                        <input type="hidden" id="p2b" name="p2b" />
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p1a">X1</label>
+                            <input type="text" class="form-control" id="p1a" name="p1a" placeholder="X1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p1b">Y1</label>
+                            <input type="text" class="form-control" id="p1b" name="p1b" placeholder="Y1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p2a">X2</label>
+                            <input type="text" class="form-control" id="p2a" name="p2a" placeholder="X2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p2b">Y2</label>
+                            <input type="text" class="form-control" id="p2b" name="p2b" placeholder="Y2" required>
+                        </div>
                         <button class="btn btn-default" id="btn-modifyPlot">Guardar Diagrama</button>
                         <input type="submit" value="ModificarDiagrama" class="btn btn-default" id="btn-submitmPlot" style="display: none;"/>
                     </form>
-                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;"></div>
+                </div>
+            </div>
         </div>
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/modificarDiagrama.js"></script>
