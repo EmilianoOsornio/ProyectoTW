@@ -33,6 +33,10 @@ public class GuardarDiagrama extends HttpServlet {
         String p1b=String.valueOf(request.getParameter("p1b"));
         String p2a=String.valueOf(request.getParameter("p2a"));
         String p2b=String.valueOf(request.getParameter("p2b"));
+        String bb1=String.valueOf(request.getParameter("bb1"));
+        String bb2=String.valueOf(request.getParameter("bb2"));
+        String bb3=String.valueOf(request.getParameter("bb3"));
+        String bb4=String.valueOf(request.getParameter("bb4"));
         
         List respuesta = new ArrayList();
         String JSONresponse;
@@ -58,6 +62,10 @@ public class GuardarDiagrama extends HttpServlet {
 		Element b1 = new Element("p1b");
 		Element a2 = new Element("p2a");
 		Element b2 = new Element("p2b");
+                Element bbox1= new Element("bb1");
+                Element bbox2= new Element("bb2");
+                Element bbox3= new Element("bb3");
+                Element bbox4= new Element("bb4");
 
                 //Atributos
                 
@@ -72,6 +80,10 @@ public class GuardarDiagrama extends HttpServlet {
                 b1.setText(p1b);
                 a2.setText(p2a);
                 b2.setText(p2b);
+                bbox1.setText(bb1);
+                bbox2.setText(bb2);
+                bbox3.setText(bb3);
+                bbox4.setText(bb4);
                 
                 //Agregamos al nodo padre y raiz
                 plot.addContent(name);
@@ -79,6 +91,11 @@ public class GuardarDiagrama extends HttpServlet {
                 plot.addContent(b1);
                 plot.addContent(a2);
                 plot.addContent(b2);
+                plot.addContent(bbox1);
+                plot.addContent(bbox2);
+                plot.addContent(bbox3);
+                plot.addContent(bbox4);
+                
                 rootElement.addContent(plot);
                 
                 //Escribimos en el archivo

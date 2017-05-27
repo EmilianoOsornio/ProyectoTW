@@ -46,6 +46,10 @@ public class ModificarDiagrama extends HttpServlet {
                 respuesta.add(plots.getChildText("p1b"));
                 respuesta.add(plots.getChildText("p2a"));
                 respuesta.add(plots.getChildText("p2b"));
+                respuesta.add(plots.getChildText("bb1"));
+                respuesta.add(plots.getChildText("bb2"));
+                respuesta.add(plots.getChildText("bb3"));
+                respuesta.add(plots.getChildText("bb4"));
 
                 //Escribimos en el archivo
                 XMLOutputter fmt = new XMLOutputter();
@@ -80,6 +84,11 @@ public class ModificarDiagrama extends HttpServlet {
         String p1b=String.valueOf(request.getParameter("p1b"));
         String p2a=String.valueOf(request.getParameter("p2a"));
         String p2b=String.valueOf(request.getParameter("p2b"));
+        String bb1=String.valueOf(request.getParameter("bb1"));
+        String bb2=String.valueOf(request.getParameter("bb2"));
+        String bb3=String.valueOf(request.getParameter("bb3"));
+        String bb4=String.valueOf(request.getParameter("bb4"));
+
         
         List respuesta = new ArrayList();
         String JSONresponse;
@@ -107,6 +116,10 @@ public class ModificarDiagrama extends HttpServlet {
 		Element p12 = new Element("p1b");
 		Element p21 = new Element("p2a");
 		Element p22 = new Element("p2b");
+                Element b1 = new Element("bb1");
+		Element b2 = new Element("bb2");
+		Element b3 = new Element("bb3");
+		Element b4 = new Element("bb4");
                 
                 //Llenamos con los datos ingresados por el usuario
                 name.setText(nombre);
@@ -114,6 +127,10 @@ public class ModificarDiagrama extends HttpServlet {
                 p12.setText(p1b);
                 p21.setText(p2a);
                 p22.setText(p2b);
+                b1.setText(bb1);
+                b2.setText(bb2);
+                b3.setText(bb3);
+                b4.setText(bb4);
 
                 
                 //Añadimos al nodo padre
@@ -122,6 +139,10 @@ public class ModificarDiagrama extends HttpServlet {
                 plots.addContent(p12);
                 plots.addContent(p21);
                 plots.addContent(p22);
+                plots.addContent(b1);
+                plots.addContent(b2);
+                plots.addContent(b3);
+                plots.addContent(b4);
                 
                 //Escribimos en el archivo
                 XMLOutputter fmt = new XMLOutputter();

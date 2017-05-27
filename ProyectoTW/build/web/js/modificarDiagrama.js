@@ -6,6 +6,10 @@ var name;
 var p1;
 var p2;
 var id;
+var bb1=-5;
+var bb2=1;
+var bb3=5;
+var bb4=-1;
 $(function() {
     id = getUrlParameter('id');   
     console.log("Lo primero: "+id);
@@ -21,7 +25,11 @@ $(function() {
             puntoB1=msg[3];
             puntoA2=msg[4];
             puntoB2=msg[5];
-            createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2);
+            bb1=msg[6];
+            bb2=msg[7];
+            bb3=msg[8];
+            bb4=msg[9];
+            createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4);
         },
         error: function(error) {
             console.log(error);
@@ -30,7 +38,7 @@ $(function() {
 });
 
 
-function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2){
+function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
     
     $("#id").val(id);
     $("#name").val(name);
@@ -44,7 +52,8 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2){
     var num3=parseFloat(puntoA2);
     var num4=parseFloat(puntoB2);
     
-    var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-5, 2, 5, -2], axis:true, grid:true});
+    
+    var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [bb1, bb2, bb3, bb4], axis:true, grid:true});
     p1 = b.create('point',[num,num2], {name:'A',size:4});
     p2 = b.create('point',[num3,num4], {name:'B',size:4});
     var li = b.create('line',["A","B"], {strokeColor:'#00ff00',strokeWidth:2});
@@ -94,6 +103,11 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2){
 
     $("#btn-modifyPlot").click(function(e) {
         e.preventDefault();
+        //Mandamos los valores de la cuadricula
+        $("#bb1").val(bb1/b.zoomX);
+        $("#bb2").val(bb2/b.zoomY);
+        $("#bb3").val(bb3/b.zoomX);
+        $("#bb4").val(bb4/b.zoomY);
         console.log("Coordenadas p1: "+p1.coords.usrCoords);
         setCoordenadas();
         if(!$("#diagramamForm")[0].checkValidity()){

@@ -21,6 +21,10 @@ and open the template in the editor.
                         <input type="hidden" id="p1b" name="p1b" />
                         <input type="hidden" id="p2a" name="p2a" />
                         <input type="hidden" id="p2b" name="p2b" />
+                        <input type="hidden" id="bb1" name="bb1" />
+                        <input type="hidden" id="bb2" name="bb2" />
+                        <input type="hidden" id="bb3" name="bb3" />
+                        <input type="hidden" id="bb4" name="bb4" />
                         <button class="btn btn-default" id="btn-savePlot">Guardar Diagrama</button>
                         <input type="submit" value="GuardarDiagrama" class="btn btn-default" id="btn-submitPlot" style="display: none;"/>
                     </form>
@@ -33,17 +37,10 @@ and open the template in the editor.
         <script src="js/loginVal.js"></script>
         <script src="js/grafica.js"></script>
         <script type="text/javascript">
-        var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-5, 2, 5, -2]});
-        var p1 = b.create('point',[-1,1], {name:'A',size:4});
-        var p2 = b.create('point',[2,-1], {name:'B',size:4});
+        var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [bb1, bb2, bb3, bb4], axis:true, grid:true});
+        var p1 = b.create('point',[1,1], {name:'A',size:4});
+        var p2 = b.create('point',[-1,-1], {name:'B',size:4});
         var li = b.create('line',["A","B"], {strokeColor:'#00ff00',strokeWidth:2});
-        console.log(p1);
-        /*
-        console.log("punto", p1.coords.usrCoords);
-        console.log("punto", p2.coords.usrCoords);
-        console.log("linea", li);
-        console.log("punto 1", p1);
-        */
        </script>
     </body>
 </html>
