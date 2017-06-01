@@ -48,6 +48,14 @@
         <servlet-name>ModificarDiagrama</servlet-name>
         <servlet-class>paquete.ModificarDiagrama</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ObtenerDiagramas</servlet-name>
+        <servlet-class>paquete.ObtenerDiagramas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarDiagrama</servlet-name>
+        <servlet-class>paquete.EliminarDiagrama</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Eliminar</servlet-name>
         <url-pattern>/Eliminar</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>ModificarDiagrama</servlet-name>
         <url-pattern>/ModificarDiagrama</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ObtenerDiagramas</servlet-name>
+        <url-pattern>/ObtenerDiagramas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarDiagrama</servlet-name>
+        <url-pattern>/EliminarDiagrama</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

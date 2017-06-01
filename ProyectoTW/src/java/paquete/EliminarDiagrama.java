@@ -17,7 +17,7 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-public class Eliminar extends HttpServlet {
+public class EliminarDiagrama extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +27,7 @@ public class Eliminar extends HttpServlet {
         int id=Integer.parseInt(request.getParameter("id"));       
     
         ServletContext context= request.getServletContext();
-        String path= context.getRealPath("/")+"users.xml";
+        String path= context.getRealPath("/")+"plots.xml";
         
         SAXBuilder saxBuilder = new SAXBuilder();
         File inputFile = new File(path);
@@ -37,7 +37,7 @@ public class Eliminar extends HttpServlet {
                 Document document = (Document) saxBuilder.build(inputFile);
                 Element rootElement = document.getRootElement();
 
-                List<Element> list = rootElement.getChildren("user");
+                List<Element> list = rootElement.getChildren("plot");
                 Iterator itr = list.iterator();
                 while (itr.hasNext()) {
                 Element child = (Element) itr.next();
@@ -48,7 +48,7 @@ public class Eliminar extends HttpServlet {
                 }
                 
                 //Reasignamos los ids
-                List<Element> newlist = rootElement.getChildren("user");
+                List<Element> newlist = rootElement.getChildren("plot");
                 for (int cont = 0; cont < newlist.size(); cont++) {
                     Element users = list.get(cont);
                     users = newlist.get(cont);
@@ -66,9 +66,9 @@ public class Eliminar extends HttpServlet {
                 
                
                 
-                out.println("<script>alert('Usuario Eliminado'); location='lista.html';</script>");
+                out.println("<script>alert('Diagrama Eliminado'); location='diagramas.html';</script>");
                 }catch(Exception ex) {
-                out.println("<script>alert('Usuario no eliminado'); location='lista.html';</script>");
+                out.println("<script>alert('Diagrama no eliminado'); location='diagramas.html';</script>");
                 ex.printStackTrace();	
                 }
     }

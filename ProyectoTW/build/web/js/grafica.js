@@ -2,7 +2,14 @@ var bb1=-5;
 var bb2=2;
 var bb3=5;
 var bb4=-2;
+
+var b = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [bb1, bb2, bb3, bb4], axis:true, grid:true});
+var p1 = b.create('point',[1,1], {name:'A',size:4});
+var p2 = b.create('point',[-1,-1], {name:'B',size:4});
+var li = b.create('line',["A","B"], {strokeColor:'#00ff00',strokeWidth:2});
+
 $(function() {
+    obtenerPermisos("profesor");
     $("#btn-savePlot").click(function(e) {
         /*
         $("#bb1").val(bb1/b.zoomX);
@@ -22,7 +29,7 @@ $(function() {
                 data: $("#diagramaForm").serialize(),
                 success: function(msg, status, jqXHR) {
                     alert("Diagrama Guardado");
-                    window.location.href="home.html";
+                    window.location.href="diagramas.html";
                     console.log(msg);
                 },
                 error: function(error) {

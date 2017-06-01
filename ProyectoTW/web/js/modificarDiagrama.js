@@ -13,7 +13,7 @@ var bb4=-1;
 $(function() {
     id = getUrlParameter('id');   
     console.log("Lo primero: "+id);
-    obtenerPermisos("admin");
+    obtenerPermisos("profesor");
     $.ajax({
         type: "GET",
         url: "ModificarDiagrama",
@@ -64,6 +64,7 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
         y = parseFloat($("#p1b").val());
         p1.setPosition(JXG.COORDS_BY_USER, [x,y]);
         b.fullUpdate();
+        calcularPendiente();
         //createPlot($("#name").val(),$("#p1a").val(),$("#p1b").val(), $("#p2a").val(), $("#p2b").val());
     });
     
@@ -72,6 +73,7 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
         y = parseFloat($("#p1b").val());
         p1.setPosition(JXG.COORDS_BY_USER, [x,y]);
         b.fullUpdate();
+        calcularPendiente();
         //createPlot($("#name").val(),$("#p1a").val(),$("#p1b").val(), $("#p2a").val(), $("#p2b").val());
     });
     
@@ -80,6 +82,7 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
         y = parseFloat($("#p2b").val());
         p2.setPosition(JXG.COORDS_BY_USER, [x,y]);
         b.fullUpdate();
+        calcularPendiente();
         //createPlot($("#name").val(),$("#p1a").val(),$("#p1b").val(), $("#p2a").val(), $("#p2b").val());
     });
     
@@ -88,17 +91,20 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
         y = parseFloat($("#p2b").val());
         p2.setPosition(JXG.COORDS_BY_USER, [x,y]);
         b.fullUpdate();
+        calcularPendiente();
         //createPlot($("#name").val(),$("#p1a").val(),$("#p1b").val(), $("#p2a").val(), $("#p2b").val());
     });
 
     p1.on('drag', function(){
         $("#p1a").val(p1.coords.usrCoords[1]);
         $("#p1b").val(p1.coords.usrCoords[2]);
+        calcularPendiente();
     });
     
     p2.on('drag', function(){
         $("#p2a").val(p2.coords.usrCoords[1]);
         $("#p2b").val(p2.coords.usrCoords[2]);
+        calcularPendiente();
     });
 
     $("#btn-modifyPlot").click(function(e) {
@@ -121,7 +127,7 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
                 data: $("#diagramamForm").serialize(),
                 success: function(msg, status, jqXHR) {
                     alert("Diagrama Guardado");
-                    window.location.href="home.html";
+                    window.location.href="diagramas.html";
                     console.log(msg);
                 },
                 error: function(error) {
@@ -130,6 +136,7 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
             });
         }
     });
+    calcularPendiente();
 }
 
       
@@ -142,4 +149,16 @@ function setCoordenadas() {
     $("#p1b").val(punto1[2]);
     $("#p2a").val(punto2[1]);
     $("#p2b").val(punto2[2]);
+}
+
+function calcularPendiente(){
+    var m,x1,x2,y1,y2;
+    x1=$("#p1a").val();
+    y1=$("#p1b").val();
+    x2=$("#p2a").val();
+    y2=$("#p2b").val();
+    console.log("X1",x1);
+    m=(y2-y1)/(x2-x1);
+    
+    $("#m").val(m);
 }

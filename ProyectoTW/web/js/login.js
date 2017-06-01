@@ -12,7 +12,8 @@ $("#btn-submit").click(function(e) {
             console.log(msg);
             if(msg[0] === "error") {
                 console.log(msg);
-                $(".form-group").addClass("has-error")
+                $("#helpBlock").remove();
+                $(".form-group").addClass("has-error");
                 $("#passwordInput").append('<span id="helpBlock" class="help-block">Usuario o contraseña incorrectos</span>');
             }
             else {
@@ -20,8 +21,11 @@ $("#btn-submit").click(function(e) {
                 if(msg[1] === "admin") {
                     window.location.href = "lista.html";
                 }
+                if(msg[1] === "profesor") {
+                    window.location.href = "diagramas.html";
+                }
                 else {
-                    window.location.href = "Inicio";
+                    window.location.href = "home.html";
                 }
             }
         }
