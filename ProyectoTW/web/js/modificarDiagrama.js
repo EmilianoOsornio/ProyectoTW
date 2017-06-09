@@ -126,7 +126,12 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
                 url: "ModificarDiagrama",
                 data: $("#diagramamForm").serialize(),
                 success: function(msg, status, jqXHR) {
-                    alert("Diagrama Guardado");
+                    if(msg[0] === "success"){
+                        alert("Diagrama Modificado");
+                    }
+                    if(msg[0] === "error"){
+                        alert("No tiene los permisos para modificar");
+                    }
                     window.location.href="diagramas.html";
                     console.log(msg);
                 },

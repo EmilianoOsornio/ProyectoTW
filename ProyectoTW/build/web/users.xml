@@ -48,5 +48,11 @@
     <pass>123</pass>
     <type>estudiante</type>
   </user>
+  <user id="9">
+    <name>Pro</name>
+    <mail>pro@gmail.com</mail>
+    <pass>pro</pass>
+    <type>profesor</type>
+  </user>
 </users>
 

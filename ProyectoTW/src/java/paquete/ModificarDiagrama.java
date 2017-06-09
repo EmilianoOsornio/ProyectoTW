@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -23,8 +24,9 @@ public class ModificarDiagrama extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
-        PrintWriter out = response.getWriter();    
-        int id=Integer.parseInt(request.getParameter("id")); 
+        PrintWriter out = response.getWriter();  
+        int id=Integer.parseInt(request.getParameter("id"));
+  
         List respuesta = new ArrayList();
         ServletContext context= request.getServletContext();
         String path= context.getRealPath("/")+"plots.xml";        
@@ -77,6 +79,8 @@ public class ModificarDiagrama extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession session= request.getSession();
+        String idprof=(String)session.getAttribute("id");
         
         int id=Integer.parseInt(request.getParameter("id"));
         String nombre=String.valueOf(request.getParameter("name"));
@@ -108,55 +112,66 @@ public class ModificarDiagrama extends HttpServlet {
                 Element plots = list.get(id-1);
                 
                 //Borramos los datos previos
-                plots.removeContent();
+                String idprofesor=plots.getAttributeValue("idprof");
                 
-                // Creamos nuestras entradas
-		Element name = new Element("name");
-		Element p11 = new Element("p1a");
-		Element p12 = new Element("p1b");
-		Element p21 = new Element("p2a");
-		Element p22 = new Element("p2b");
-                Element b1 = new Element("bb1");
-		Element b2 = new Element("bb2");
-		Element b3 = new Element("bb3");
-		Element b4 = new Element("bb4");
-                
-                //Llenamos con los datos ingresados por el usuario
-                name.setText(nombre);
-                p11.setText(p1a);
-                p12.setText(p1b);
-                p21.setText(p2a);
-                p22.setText(p2b);
-                b1.setText(bb1);
-                b2.setText(bb2);
-                b3.setText(bb3);
-                b4.setText(bb4);
+                //Checamos si el profesor tiene permiso de modificar el diagrama
+                if(idprof.equals(idprofesor)){
+                    plots.removeContent();
 
-                
-                //Añadimos al nodo padre
-                plots.addContent(name);
-                plots.addContent(p11);
-                plots.addContent(p12);
-                plots.addContent(p21);
-                plots.addContent(p22);
-                plots.addContent(b1);
-                plots.addContent(b2);
-                plots.addContent(b3);
-                plots.addContent(b4);
-                
-                //Escribimos en el archivo
-                XMLOutputter fmt = new XMLOutputter();
-                FileWriter writer = new FileWriter(path);
-                fmt.setFormat(Format.getPrettyFormat());
-                fmt.output(document, writer);
-                writer.flush();
-                writer.close();
-                
-                respuesta.add("success");
-                respuesta.add(nombre);
-                JSONresponse = new Gson().toJson(respuesta);      
-                out.write(JSONresponse);
-                out.flush();
+                    // Creamos nuestras entradas
+                    Element name = new Element("name");
+                    Element p11 = new Element("p1a");
+                    Element p12 = new Element("p1b");
+                    Element p21 = new Element("p2a");
+                    Element p22 = new Element("p2b");
+                    Element b1 = new Element("bb1");
+                    Element b2 = new Element("bb2");
+                    Element b3 = new Element("bb3");
+                    Element b4 = new Element("bb4");
+
+                    //Llenamos con los datos ingresados por el usuario
+                    name.setText(nombre);
+                    p11.setText(p1a);
+                    p12.setText(p1b);
+                    p21.setText(p2a);
+                    p22.setText(p2b);
+                    b1.setText(bb1);
+                    b2.setText(bb2);
+                    b3.setText(bb3);
+                    b4.setText(bb4);
+
+
+                    //Añadimos al nodo padre
+                    plots.addContent(name);
+                    plots.addContent(p11);
+                    plots.addContent(p12);
+                    plots.addContent(p21);
+                    plots.addContent(p22);
+                    plots.addContent(b1);
+                    plots.addContent(b2);
+                    plots.addContent(b3);
+                    plots.addContent(b4);
+
+                    //Escribimos en el archivo
+                    XMLOutputter fmt = new XMLOutputter();
+                    FileWriter writer = new FileWriter(path);
+                    fmt.setFormat(Format.getPrettyFormat());
+                    fmt.output(document, writer);
+                    writer.flush();
+                    writer.close();
+
+                    respuesta.add("success");
+                    respuesta.add(nombre);
+                    JSONresponse = new Gson().toJson(respuesta);      
+                    out.write(JSONresponse);
+                    out.flush();
+                }else{
+                    respuesta.add("error");
+                    respuesta.add(null);
+                    JSONresponse = new Gson().toJson(respuesta);      
+                    out.write(JSONresponse);
+                    out.flush();
+                }
                 
         }catch(Exception ex) {
             

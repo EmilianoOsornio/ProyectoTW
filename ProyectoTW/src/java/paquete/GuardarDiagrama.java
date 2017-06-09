@@ -27,6 +27,8 @@ public class GuardarDiagrama extends HttpServlet {
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        HttpSession session=request.getSession();
+        String profid=String.valueOf(session.getAttribute("id"));
         
         String nombre=String.valueOf(request.getParameter("name"));
         String p1a=String.valueOf(request.getParameter("p1a"));
@@ -72,6 +74,7 @@ public class GuardarDiagrama extends HttpServlet {
                 //Calculamos el id siguiente
                 List<Element> list = rootElement.getChildren("plot");
                 plot.setAttribute("id",""+(list.size()+1)+"");
+                plot.setAttribute("idprof",profid);
 
                 //Llenamos con los datos ingresados por el usuario
                 

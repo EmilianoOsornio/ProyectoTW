@@ -30,6 +30,7 @@ public class ObtenerDiagramas extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session=request.getSession();
         String user=(String)session.getAttribute("name");
+        String id=(String)session.getAttribute("id");
         String type=(String)session.getAttribute("type");
         ArrayList res = new ArrayList();
         ArrayList plotList = new ArrayList();
@@ -53,9 +54,11 @@ public class ObtenerDiagramas extends HttpServlet {
                     for (int cont = 0; cont < list.size(); cont++) {
                         Element plots = list.get(cont);
                         ArrayList userInfo = new ArrayList();
-                        userInfo.add(plots.getAttributeValue("id"));
-                        userInfo.add(plots.getChildText("name"));
-                        plotList.add(userInfo);
+                        if(plots.getAttributeValue("idprof").equals(id)){
+                            userInfo.add(plots.getAttributeValue("id"));
+                            userInfo.add(plots.getChildText("name"));
+                            plotList.add(userInfo);
+                        }
                     }
                     res.add(userData);
                     res.add(plotList);
