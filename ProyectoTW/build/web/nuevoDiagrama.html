@@ -14,13 +14,34 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid">
+            
             <h1>Crea tu diagrama</h1>
                     <form id="diagramaForm">
                         Nombre: <input type="text" name="name" id="name" required /> 
-                        <input type="hidden" id="p1a" name="p1a" />
-                        <input type="hidden" id="p1b" name="p1b" />
-                        <input type="hidden" id="p2a" name="p2a" />
-                        <input type="hidden" id="p2b" name="p2b" />
+                        <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;"></div>
+                        <input type="text" id="p1a" name="p1a" />
+                        <input type="text" id="p1b" name="p1b" />
+                        <input type="text" id="p2a" name="p2a" />
+                        <input type="text" id="p2b" name="p2b" />
+                        <div>
+                            <h3>Pendiente</h3>
+                            <input type="text" id="y2" name="y2" required />
+                            -   <input type="text" id="y1" name="y1" required />
+                            =   <input type="text" id="m1" name="m1" readonly required /> 
+                            <br /><br />
+                            <input type="text" id="x2" name="x2" required />
+                            -   <input type="text" id="x1" name="x1" required />
+                            &nbsp;&nbsp;&nbsp;<input type="text" id="m2" name="m2" readonly required />
+                            <br /><br />
+                        </div>
+                        <div>
+                            <h3>(y-y1)=m1/m2  (x-x1)</h3>
+                            y1:<input type="text" id="2y1" name="2y1" placeholder="y1" required>
+                            x1:<input type="text" id="2x1" name="2x1" placeholder="x1" required>
+                            m1:<input type="text" id="2m1" name="2m1" placeholder="m1" readonly required>
+                            m2:<input type="text" id="2m2" name="2m2" placeholder="m2" readonly required>
+                            <br /><br />
+                        </div>
                         <input type="hidden" id="bb1" name="bb1" />
                         <input type="hidden" id="bb2" name="bb2" />
                         <input type="hidden" id="bb3" name="bb3" />
@@ -28,7 +49,6 @@ and open the template in the editor.
                         <button class="btn btn-default" id="btn-savePlot">Guardar Diagrama</button>
                         <input type="submit" value="GuardarDiagrama" class="btn btn-default" id="btn-submitPlot" style="display: none;"/>
                     </form>
-                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;"></div>
 
         </div>
         <script src="js/jquery-3.2.1.min.js"></script>
