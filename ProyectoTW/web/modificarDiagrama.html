@@ -14,74 +14,93 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1>Modificar diagrama</h1>
-                </div>
-                <div class="col-xs-12 col-md-6 text-center">                    
-                    <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;  display: inline-block; margin-top: 1rem;"></div>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <form id="diagramamForm">
-                        <input type="hidden" id="id" name="id" />
+            <div class="col-xs-12">
+                <h1>Crea tu diagrama</h1>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+                <div id="jxgbox" class="jxgbox" style="width:400px; height:400px;  display: inline-block; margin-top: 1rem;"></div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <form id="diagramaForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p1a">x<small style="font-size: 1rem;">1</small></label>
+                        <input type="text" class="form-control" id="p1a" name="p1a" placeholder="X1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p1b">y<small style="font-size: 1rem;">1</small></label>
+                        <input type="text" class="form-control" id="p1b" name="p1b" placeholder="Y1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p2a">x<small style="font-size: 1rem;">2</small></label>
+                        <input type="text" class="form-control" id="p2a" name="p2a" placeholder="X2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p2b">y<small style="font-size: 1rem;">2</small></label>
+                        <input type="text" class="form-control" id="p2b" name="p2b" placeholder="Y2" required>
+                    </div>
+                    <h3>Pendiente</h3>
+                    <div class="form-inline">    
                         <div class="form-group">
-                            <label for="name">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                            <input type="text" class="form-control" id="y2" name="y2" required>
+                        </div> -
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="y1" name="y1" required>
+                        </div> = 
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="m1" name="m1" required readonly>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-inline">    
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="x2" name="x2" required>
+                        </div> -
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="x1" name="x1" required>
+                        </div> = 
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="m2" name="m2" required readonly>
+                        </div>
+                    </div>
+                    <h3>(y-y<small style="font-size: 1rem;">1</small>)=(m<small style="font-size: 1rem;">1</small>/m<small style="font-size: 1rem;">2</small>)*(x-x<small style="font-size: 1rem;">1</small>)</h3>
+                    <div class="form-inline">    
+                        <div class="form-group">
+                            <label for="2y1">y<small style="font-size: 1rem;">1</small></label>
+                            <input type="text" class="form-control" id="2y1" name="2y1" placeholder="y1" required>
                         </div>
                         <div class="form-group">
-                            <label for="p1a">X1</label>
-                            <input type="text" class="form-control" id="p1a" name="p1a" placeholder="X1" required>
+                            <label for="2y1">x<small style="font-size: 1rem;">1</small></label>
+                            <input type="text" class="form-control" id="2x1" name="2x1" placeholder="x1" required>
                         </div>
                         <div class="form-group">
-                            <label for="p1b">Y1</label>
-                            <input type="text" class="form-control" id="p1b" name="p1b" placeholder="Y1" required>
+                            <label for="2m1">m<small style="font-size: 1rem;">1</small></label>
+                            <input type="text" class="form-control" id="2m1" name="2m1" placeholder="m1" required>
                         </div>
                         <div class="form-group">
-                            <label for="p2a">X2</label>
-                            <input type="text" class="form-control" id="p2a" name="p2a" placeholder="X2" required>
+                            <label for="2m2">m<small style="font-size: 1rem;">2</small></label>
+                            <input type="text" class="form-control" id="2m2" name="2m2" placeholder="m2" required>
                         </div>
-                        <div class="form-group">
-                            <label for="p2b">Y2</label>
-                            <input type="text" class="form-control" id="p2b" name="p2b" placeholder="Y2" required>
-                        </div>
-                        <div>
-                            <h3>Pendiente</h3>
-                            <input type="text" id="y2" name="y2" required />
-                            -   <input type="text" id="y1" name="y1" required />
-                            =   <input type="text" id="m1" name="m1" readonly required /> 
-                            <br /><br />
-                            <input type="text" id="x2" name="x2" required />
-                            -   <input type="text" id="x1" name="x1" required />
-                            &nbsp;&nbsp;&nbsp;<input type="text" id="m2" name="m2" readonly required />
-                            <br /><br />
-                        </div>
-                        <div>
-                            <h3>(y-y1)=m1/m2  (x-x1)</h3>
-                            y1:<input type="text" id="2y1" name="2y1" placeholder="y1" required>
-                            x1:<input type="text" id="2x1" name="2x1" placeholder="x1" required>
-                            m1:<input type="text" id="2m1" name="2m1" placeholder="m1" readonly required>
-                            m2:<input type="text" id="2m2" name="2m2" placeholder="m2" readonly required>
-                            <br /><br />
-                        </div>
-                        <input type="hidden" id="bb1" name="bb1"/>
-                        <input type="hidden" id="bb2" name="bb2"/>
-                        <input type="hidden" id="bb3" name="bb3"/>
-                        <input type="hidden" id="bb4" name="bb4"/>
-                        <!--
-                        <input type="text" id="m" name="m"/>
-                        -->
-                        <button class="btn btn-default" id="btn-modifyPlot">Guardar Diagrama</button>
-                        <input type="submit" value="ModificarDiagrama" class="btn btn-default" id="btn-submitmPlot" style="display: none;"/>
-                    </form>
-                </div>
+                    </div>
+                    <input type="hidden" id="bb1" name="bb1" />
+                    <input type="hidden" id="bb2" name="bb2" />
+                    <input type="hidden" id="bb3" name="bb3" />
+                    <input type="hidden" id="bb4" name="bb4" />
+                    <br>
+                    <button class="btn btn-default" id="btn-savePlot">Guardar Diagrama</button>
+                    <input type="submit" value="GuardarDiagrama" class="btn btn-default" id="btn-submitPlot" style="display: none;"/>
+                </form>
             </div>
         </div>
         <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/global.js"></script>
         <script src="js/modificarDiagrama.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jsxgraph.js"></script>                
         <script src="js/loginVal.js"></script>
-        <script src="js/global.js"></script>
     </body>
 </html>
 
