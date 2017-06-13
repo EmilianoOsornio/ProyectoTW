@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grades>
+
+<grades>
+  <test id="1" idest="3">
+    <grade>0</grade>
+  </test>
+  <test id="2" idest="3">
+    <grade>0</grade>
+  </test>
+  <test id="3" idest="3">
+    <grade>0</grade>
+  </test>
+  <test id="4" idest="3">
+    <grade>0</grade>
+  </test>
+  <test id="5" idest="3">
+    <grade>0</grade>
+  </test>
+</grades>
+

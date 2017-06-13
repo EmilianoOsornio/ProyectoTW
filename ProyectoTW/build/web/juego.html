@@ -24,6 +24,7 @@ and open the template in the editor.
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div id="diagramaForm">
+                    <form id="caliForm">
                     <div class="form-group">
                         <label for="p1a">x<small style="font-size: 1rem;">1</small></label>
                         <input type="text" class="form-control" id="p1a" name="p1a" placeholder="x1" required>
@@ -68,8 +69,11 @@ and open the template in the editor.
                         </div>
                     </div>
                     <br>
+                    <input type="hidden" id="ac" name="ac" />
                     <button class="btn btn-default" id="btn-comprobar">Terminar</button>
                     <button class="btn btn-default" id="btn-recargar" disabled>Nueva gráfica</button>
+                    <input type="submit" value="GuardarCalificacion" class="btn btn-default" id="btn-submitGrade" style="display: none;"/>
+                    </form>
                 </div>
             </div>
             <div class="col-xs-12">

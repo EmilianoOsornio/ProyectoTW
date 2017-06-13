@@ -56,6 +56,10 @@
         <servlet-name>EliminarDiagrama</servlet-name>
         <servlet-class>paquete.EliminarDiagrama</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuardarCalificacion</servlet-name>
+        <servlet-class>paquete.GuardarCalificacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Eliminar</servlet-name>
         <url-pattern>/Eliminar</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>EliminarDiagrama</servlet-name>
         <url-pattern>/EliminarDiagrama</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCalificacion</servlet-name>
+        <url-pattern>/GuardarCalificacion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

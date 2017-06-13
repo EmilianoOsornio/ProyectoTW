@@ -17,7 +17,7 @@ var p2 = b.create('point',[rx2,ry2], {name:'B',size:4, fixed: true});
 var li = b.create('line',["A","B"], {strokeColor:'#00ff00',strokeWidth:2});
 
 $(function() {
-    obtenerPermisos("estudiante"); 
+    obtenerPermisos("estudiante");  
     
     $("#p1a").on("change keyup", function(event) {
        $("#2x1").val($("#p1a").val()); 
@@ -36,7 +36,7 @@ $(function() {
     });
     
     $("#btn-comprobar").click(function(event){
-        
+
         $(this).prop("disabled", true);
         $("#btn-recargar").prop("disabled", false);
         
@@ -70,9 +70,39 @@ $(function() {
         getAnswerStatus(m2, (x2-x1), $("#2m2"));
         
         $("#aciertos").html(aciertos + "/8 aciertos");
+        $("#ac").val(aciertos);
 
+        console.log("SI ENTRA");
+        if(!$("#caliForm")[0].checkValidity()){
+            $("#btn-submitGrade").click();
+        }
+        else {
+            event.preventDefault();
+            $.post({
+                url: "GuardarCalificacion",
+                data: $("#caliForm").serialize(),
+                success: function(msg, status, jqXHR) {
+                    alert("Calificacion Guardada");
+                    console.log(msg);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
     });
     
+    //GET para revisar los datos
+    $.ajax({
+                type: "GET",
+                url: "GuardarCalificacion",
+                success: function(msg, status, jqXHR) {
+                    console.log("Para la lista de calificaciones",msg);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
 });
 
 function getAnswerStatus(a, b, input) {
