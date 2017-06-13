@@ -149,3 +149,7 @@ function setGraphListeners() {
         $("#2m2").val($("#x2").val()-$("#x1").val());
     });
 }
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

@@ -14,57 +14,29 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid">
-            <div class="col-xs-12">
-                <h1>Crea tu diagrama</h1>
+            <div class="col-xs-11 col-xs-offset-1">
+                <h1>Ingresa los datos de la gráfica</h1>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8 text-center">
                 <div id="jxgbox" class="jxgbox" style="width:80%; height:0; display: inline-block; margin-top: 1rem; padding-bottom: 70%;"></div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <form id="diagramaForm">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
-                    </div>
+                <div id="diagramaForm">
                     <div class="form-group">
                         <label for="p1a">x<small style="font-size: 1rem;">1</small></label>
-                        <input type="text" class="form-control" id="p1a" name="p1a" placeholder="X1" required>
+                        <input type="text" class="form-control" id="p1a" name="p1a" placeholder="x1" required>
                     </div>
                     <div class="form-group">
                         <label for="p1b">y<small style="font-size: 1rem;">1</small></label>
-                        <input type="text" class="form-control" id="p1b" name="p1b" placeholder="Y1" required>
+                        <input type="text" class="form-control" id="p1b" name="p1b" placeholder="y1" required>
                     </div>
                     <div class="form-group">
                         <label for="p2a">x<small style="font-size: 1rem;">2</small></label>
-                        <input type="text" class="form-control" id="p2a" name="p2a" placeholder="X2" required>
+                        <input type="text" class="form-control" id="p2a" name="p2a" placeholder="x2" required>
                     </div>
                     <div class="form-group">
                         <label for="p2b">y<small style="font-size: 1rem;">2</small></label>
-                        <input type="text" class="form-control" id="p2b" name="p2b" placeholder="Y2" required>
-                    </div>
-                    <h3>Pendiente</h3>
-                    <div class="form-inline">    
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="y2" name="y2" required>
-                        </div> -
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="y1" name="y1" required>
-                        </div> = 
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="m1" name="m1" required readonly>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="form-inline">    
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="x2" name="x2" required>
-                        </div> -
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="x1" name="x1" required>
-                        </div> = 
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="m2" name="m2" required readonly>
-                        </div>
+                        <input type="text" class="form-control" id="p2b" name="p2b" placeholder="y2" required>
                     </div>
                     <h3>(y-y<small style="font-size: 1rem;">1</small>)=(m<small style="font-size: 1rem;">1</small>/m<small style="font-size: 1rem;">2</small>)*(x-x<small style="font-size: 1rem;">1</small>)</h3>
                     <div class="form-inline">    
@@ -85,22 +57,19 @@ and open the template in the editor.
                             <input type="text" class="form-control" id="2m2" name="2m2" placeholder="m2" required>
                         </div>
                     </div>
-                    <input type="hidden" id="bb1" name="bb1" />
-                    <input type="hidden" id="bb2" name="bb2" />
-                    <input type="hidden" id="bb3" name="bb3" />
-                    <input type="hidden" id="bb4" name="bb4" />
                     <br>
-                    <button class="btn btn-default" id="btn-savePlot">Guardar Diagrama</button>
-                    <input type="submit" value="GuardarDiagrama" class="btn btn-default" id="btn-submitPlot" style="display: none;"/>
-                </form>
+                    <button class="btn btn-default" id="btn-comprobar">Comprobar respuestas</button>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <a href="Logout">Cerrar sesión</a>
             </div>
         </div>
         <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/global.js"></script>
-        <script src="js/modificarDiagrama.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/jsxgraph.js"></script>                
+        <script src="js/jsxgraph.js"></script>     
+        <script src="js/global.js"></script>
         <script src="js/loginVal.js"></script>
+        <script src="js/juego.js"></script>
     </body>
 </html>
-
