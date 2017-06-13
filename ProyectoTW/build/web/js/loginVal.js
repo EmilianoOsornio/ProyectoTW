@@ -12,8 +12,17 @@ function obtenerPermisos(permiso) {
                     console.log("not logged in", msg);
                     window.location.href="index.html";
                 }else{
-                    window.location.href="home.html";
-                    console.log("logged in", msg);
+                    console.log("logged in but not valid", msg);
+                    if( msg[1] === "estudiante")
+                    {
+                        window.location.href="juego.html";
+                    }
+                    else if( msg[1] === "profesor") {
+                        window.location.href="diagramas.html";
+                    }
+                    else if( msg[1] === "admin") {
+                        window.location.href="lista.html";
+                    }
                 }
             }
         },
@@ -30,7 +39,15 @@ function isLoggedIn() {
         success: function(msg, status, jqXHR) {
             console.log(msg);
             if(msg[0]==="loggedIn") {
-                window.location.href="home.html";
+                if(msg[1]==="estudiante"){
+                    window.location.href="juego.html";
+                }
+                else if(msg[1]==="profesor"){
+                    window.location.href="diagramas.html";
+                }
+                else if(msg[1]==="admin"){
+                    window.location.href="lista.html";
+                }
             }
             else {
                 return false;

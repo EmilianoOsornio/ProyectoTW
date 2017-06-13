@@ -19,46 +19,57 @@ and open the template in the editor.
             </div>
             <div class="col-xs-12 col-sm-6 col-md-8 text-center">
                 <div id="jxgbox" class="jxgbox" style="width:80%; height:0; display: inline-block; margin-top: 1rem; padding-bottom: 70%;"></div>
+                <br>
+                <h3 id="aciertos"></h3>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div id="diagramaForm">
                     <div class="form-group">
                         <label for="p1a">x<small style="font-size: 1rem;">1</small></label>
                         <input type="text" class="form-control" id="p1a" name="p1a" placeholder="x1" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
                         <label for="p1b">y<small style="font-size: 1rem;">1</small></label>
                         <input type="text" class="form-control" id="p1b" name="p1b" placeholder="y1" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
                         <label for="p2a">x<small style="font-size: 1rem;">2</small></label>
                         <input type="text" class="form-control" id="p2a" name="p2a" placeholder="x2" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
                         <label for="p2b">y<small style="font-size: 1rem;">2</small></label>
                         <input type="text" class="form-control" id="p2b" name="p2b" placeholder="y2" required>
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <h3>(y-y<small style="font-size: 1rem;">1</small>)=(m<small style="font-size: 1rem;">1</small>/m<small style="font-size: 1rem;">2</small>)*(x-x<small style="font-size: 1rem;">1</small>)</h3>
-                    <div class="form-inline">    
+                    <div class="form">    
                         <div class="form-group">
                             <label for="2y1">y<small style="font-size: 1rem;">1</small></label>
                             <input type="text" class="form-control" id="2y1" name="2y1" placeholder="y1" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <div class="form-group">
                             <label for="2x1">x<small style="font-size: 1rem;">1</small></label>
                             <input type="text" class="form-control" id="2x1" name="2x1" placeholder="x1" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <div class="form-group">
                             <label for="2m1">m<small style="font-size: 1rem;">1</small></label>
                             <input type="text" class="form-control" id="2m1" name="2m1" placeholder="m1" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                         <div class="form-group">
                             <label for="2m2">m<small style="font-size: 1rem;">2</small></label>
                             <input type="text" class="form-control" id="2m2" name="2m2" placeholder="m2" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                     </div>
                     <br>
-                    <button class="btn btn-default" id="btn-comprobar">Comprobar respuestas</button>
+                    <button class="btn btn-default" id="btn-comprobar">Terminar</button>
+                    <button class="btn btn-default" id="btn-recargar" disabled>Nueva gráfica</button>
                 </div>
             </div>
             <div class="col-xs-12">

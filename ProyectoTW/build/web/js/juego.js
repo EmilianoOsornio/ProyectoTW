@@ -3,6 +3,8 @@ var bb2=10;
 var bb3=10;
 var bb4=-10;
 
+var aciertos = 0;
+
 var rx1 = parseInt(getRandomInt(0, 10));
 var rx2 = parseInt(getRandomInt(0, 10));
 
@@ -29,7 +31,17 @@ $(function() {
        $("#2y1").val($("#p1b").val()); 
     });
     
+    $("#btn-recargar").click(function(event){
+        location.reload();
+    });
+    
     $("#btn-comprobar").click(function(event){
+        
+        $(this).prop("disabled", true);
+        $("#btn-recargar").prop("disabled", false);
+        
+       resetStatus();
+        
        x1 = parseInt($("#p1a").val());
        y1 = parseInt($("#p1b").val());
        x2 = parseInt($("#p2a").val());
@@ -41,14 +53,51 @@ $(function() {
            console.log("correcto");
        }
        else {
+           console.log("error");
            console.log(x1+ ","+y1);
            console.log(rx1+ ","+ry1);
            console.log(x2+ ","+y2);
            console.log(rx2+ ","+ry2);
 
-       }
-       
-       
+       }       
+        getAnswerStatus(x1, rx1, $("#p1a"));
+        getAnswerStatus(x1, rx1, $("#2x1"));
+        getAnswerStatus(x2, rx2, $("#p2a"));
+        getAnswerStatus(y1, ry1, $("#p1b"));
+        getAnswerStatus(y1, ry1, $("#2y1"));
+        getAnswerStatus(y2, ry2, $("#p2b"));
+        getAnswerStatus(m1, (y2-y1), $("#2m1"));
+        getAnswerStatus(m2, (x2-x1), $("#2m2"));
+        
+        $("#aciertos").html(aciertos + "/8 aciertos");
+
     });
     
 });
+
+function getAnswerStatus(a, b, input) {
+    var icon = input.next(".glyphicon"); 
+    input.parent().addClass("has-feedback");
+    icon.removeClass("glyphicon-ok glyphicon-remove");
+    
+    if(a === b) {
+        input.parent().addClass("has-success");
+        icon.addClass("glyphicon-ok");
+        aciertos++;
+    }
+    else {
+       input.parent().addClass("has-error"); 
+       icon.addClass("glyphicon-remove");
+    }
+}
+
+function resetStatus(){
+    $("#p1a").parent().removeClass("has-success has-error has-feedback");
+    $("#p1b").parent().removeClass("has-success has-error has-feedback");
+    $("#p2a").parent().removeClass("has-success has-error has-feedback");
+    $("#p2b").parent().removeClass("has-success has-error has-feedback");
+    $("#2m1").parent().removeClass("has-success has-error has-feedback");
+    $("#2m2").parent().removeClass("has-success has-error has-feedback");
+    $("#2x1").parent().removeClass("has-success has-error has-feedback");
+    $("#2y1").parent().removeClass("has-success has-error has-feedback");
+}

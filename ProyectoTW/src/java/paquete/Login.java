@@ -32,7 +32,15 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session=request.getSession();
         if(session.getAttribute("loggedIn")!=null && (boolean)session.getAttribute("loggedIn")) {
-            response.sendRedirect("home.html");
+            if(session.getAttribute("type").equals("estudiante")) {
+                response.sendRedirect("juego.html");
+            }
+            else if(session.getAttribute("type").equals("profesor")) {
+                response.sendRedirect("diagramas.html");
+            }
+            else if(session.getAttribute("type").equals("admin")) {
+                response.sendRedirect("lista.html");
+            }
         }
         else {
             response.sendRedirect("");
