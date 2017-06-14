@@ -28,10 +28,14 @@ public class GuardarCalificacion extends HttpServlet {
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session=request.getSession();
+        String user=(String)session.getAttribute("name");
         String id=(String)session.getAttribute("id");
         String type=(String)session.getAttribute("type");
         ArrayList res = new ArrayList();
         ArrayList plotList = new ArrayList();
+        ArrayList userData = new ArrayList();
+        userData.add(user);
+        userData.add(type);
         if(type!=null && type.equals("estudiante")) {
             ServletContext context= request.getServletContext();
             String path= context.getRealPath("/")+"grades.xml";
@@ -50,11 +54,12 @@ public class GuardarCalificacion extends HttpServlet {
                         ArrayList userInfo = new ArrayList();
                         if(tests.getAttributeValue("idest").equals(id)){
                             userInfo.add(tests.getAttributeValue("id"));
-                            userInfo.add(tests.getAttributeValue("idest"));
+                            userInfo.add("Examen " + tests.getAttributeValue("id"));
                             userInfo.add(tests.getChildText("grade"));
                             plotList.add(userInfo);
                         }
                     }
+                    res.add(userData);
                     res.add(plotList);
                     String JSONresponse = new Gson().toJson(res);
                     

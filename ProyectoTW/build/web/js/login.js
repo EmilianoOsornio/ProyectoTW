@@ -25,7 +25,7 @@ $("#btn-submit").click(function(e) {
                     window.location.href = "diagramas.html";
                 }
                 else if(msg[1] === "estudiante") {
-                    window.location.href = "juego.html";
+                    window.location.href = "lista-juegos.html";
                 }
             }
         }

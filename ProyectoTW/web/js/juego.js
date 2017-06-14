@@ -37,52 +37,38 @@ $(function() {
     
     $("#btn-comprobar").click(function(event){
 
-        $(this).prop("disabled", true);
-        $("#btn-recargar").prop("disabled", false);
-        
-       resetStatus();
-        
-       x1 = parseInt($("#p1a").val());
-       y1 = parseInt($("#p1b").val());
-       x2 = parseInt($("#p2a").val());
-       y2 = parseInt($("#p2b").val());
-       m1 = parseInt($("#2m1").val());
-       m2 = parseInt($("#2m2").val());
-       
-       if(rx1 === x1 && rx2 === x2 && ry1 === y1 && ry2 === y2 && m1 === (y2-y1) && m2 === (x2-x1)) {
-           console.log("correcto");
-       }
-       else {
-           console.log("error");
-           console.log(x1+ ","+y1);
-           console.log(rx1+ ","+ry1);
-           console.log(x2+ ","+y2);
-           console.log(rx2+ ","+ry2);
-
-       }       
-        getAnswerStatus(x1, rx1, $("#p1a"));
-        getAnswerStatus(x1, rx1, $("#2x1"));
-        getAnswerStatus(x2, rx2, $("#p2a"));
-        getAnswerStatus(y1, ry1, $("#p1b"));
-        getAnswerStatus(y1, ry1, $("#2y1"));
-        getAnswerStatus(y2, ry2, $("#p2b"));
-        getAnswerStatus(m1, (y2-y1), $("#2m1"));
-        getAnswerStatus(m2, (x2-x1), $("#2m2"));
-        
-        $("#aciertos").html(aciertos + "/8 aciertos");
-        $("#ac").val(aciertos);
-
-        console.log("SI ENTRA");
         if(!$("#caliForm")[0].checkValidity()){
             $("#btn-submitGrade").click();
         }
         else {
             event.preventDefault();
+            $(this).prop("disabled", true);
+            $("#btn-recargar").prop("disabled", false);
+
+           resetStatus();
+
+           x1 = parseInt($("#p1a").val());
+           y1 = parseInt($("#p1b").val());
+           x2 = parseInt($("#p2a").val());
+           y2 = parseInt($("#p2b").val());
+           m1 = parseInt($("#2m1").val());
+           m2 = parseInt($("#2m2").val());
+
+            getAnswerStatus(x1, rx1, $("#p1a"));
+            getAnswerStatus(x1, rx1, $("#2x1"));
+            getAnswerStatus(x2, rx2, $("#p2a"));
+            getAnswerStatus(y1, ry1, $("#p1b"));
+            getAnswerStatus(y1, ry1, $("#2y1"));
+            getAnswerStatus(y2, ry2, $("#p2b"));
+            getAnswerStatus(m1, (ry2-ry1), $("#2m1"));
+            getAnswerStatus(m2, (rx2-rx1), $("#2m2"));
+
+            $("#aciertos").html(aciertos + "/8 aciertos");
+            $("#ac").val(aciertos);
             $.post({
                 url: "GuardarCalificacion",
                 data: $("#caliForm").serialize(),
                 success: function(msg, status, jqXHR) {
-                    alert("Calificacion Guardada");
                     console.log(msg);
                 },
                 error: function(error) {
@@ -93,16 +79,16 @@ $(function() {
     });
     
     //GET para revisar los datos
-    $.ajax({
-                type: "GET",
-                url: "GuardarCalificacion",
-                success: function(msg, status, jqXHR) {
-                    console.log("Para la lista de calificaciones",msg);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
+    //$.ajax({
+    //            type: "GET",
+    //            url: "GuardarCalificacion",
+    //            success: function(msg, status, jqXHR) {
+    //                console.log("Para la lista de calificaciones",msg);
+    //            },
+    //            error: function(error) {
+    //                console.log(error);
+    //            }
+    //        });
 });
 
 function getAnswerStatus(a, b, input) {

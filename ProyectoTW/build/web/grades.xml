@@ -17,5 +17,11 @@
   <test id="5" idest="3">
     <grade>0</grade>
   </test>
+  <test id="6" idest="3">
+    <grade>2</grade>
+  </test>
+  <test id="7" idest="3">
+    <grade>0</grade>
+  </test>
 </grades>
 

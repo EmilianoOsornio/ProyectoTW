@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
         HttpSession session=request.getSession();
         if(session.getAttribute("loggedIn")!=null && (boolean)session.getAttribute("loggedIn")) {
             if(session.getAttribute("type").equals("estudiante")) {
-                response.sendRedirect("juego.html");
+                response.sendRedirect("lista-juegos.html");
             }
             else if(session.getAttribute("type").equals("profesor")) {
                 response.sendRedirect("diagramas.html");

@@ -15,7 +15,7 @@ function obtenerPermisos(permiso) {
                     console.log("logged in but not valid", msg);
                     if( msg[1] === "estudiante")
                     {
-                        window.location.href="juego.html";
+                        window.location.href="lista-juegos.html";
                     }
                     else if( msg[1] === "profesor") {
                         window.location.href="diagramas.html";
@@ -40,7 +40,7 @@ function isLoggedIn() {
             console.log(msg);
             if(msg[0]==="loggedIn") {
                 if(msg[1]==="estudiante"){
-                    window.location.href="juego.html";
+                    window.location.href="lista-juegos.html";
                 }
                 else if(msg[1]==="profesor"){
                     window.location.href="diagramas.html";

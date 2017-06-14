@@ -13,7 +13,6 @@ var bb4=-1;
 
 $(function() {
     id = getUrlParameter('id');   
-    console.log("Lo primero: "+id);
     obtenerPermisos("profesor");
     $.ajax({
         type: "GET",
@@ -76,31 +75,30 @@ function createPlot(name,puntoA1,puntoB1,puntoA2,puntoB2,bb1,bb2,bb3,bb4){
     setGraphListeners();
 
     $("#btn-modifyPlot").click(function(e) {
-        e.preventDefault();
         //Mandamos los valores de la cuadricula
         $("#bb1").val(bb1/b.zoomX);
         $("#bb2").val(bb2/b.zoomY);
         $("#bb3").val(bb3/b.zoomX);
         $("#bb4").val(bb4/b.zoomY);
-        console.log("Coordenadas p1: "+p1.coords.usrCoords);
+        
         setCoordenadas();
-        if(!$("#diagramamForm")[0].checkValidity()){
-            $("#btn-submitmPlot").click();
+        
+        if(!$("#diagramaForm")[0].checkValidity()){
+            $("#btn-submitPlot").click();
         }
         else {
             e.preventDefault();
-            console.log("Lo envia");
-            $.post({
+            $.ajax({
+                type: "POST",
                 url: "ModificarDiagrama",
-                data: $("#diagramamForm").serialize(),
+                data: $("#diagramaForm").serialize(),
                 success: function(msg, status, jqXHR) {
                     if(msg[0] === "success"){
-                        alert("Diagrama Modificado");
+                        $("#saved").text("Cambios guardados!");
                     }
                     if(msg[0] === "error"){
-                        alert("No tiene los permisos para modificar");
-                    }
-                    window.location.href="diagramas.html";
+                        $("#saved").text("Error, cambios no guardados :(");
+                    }                    
                     console.log(msg);
                 },
                 error: function(error) {

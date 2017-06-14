@@ -3,14 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/web/juego.html</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/src/java/paquete/ModificarDiagrama.java</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/web/js/juego.js</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/src/java/paquete/ObtenerDiagramas.java</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/src/java/paquete/GuardarDiagrama.java</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/web/js/lista.js</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/web/lista.html</file>
-            <file>file:/C:/Users/Familia%20Osornio%20Díaz/Documents/04%20Emiliano/ESCOM/4TO%20SEMESTRE/Web/Proyecto/Proyecto/ProyectoTW/src/java/paquete/GuardarCalificacion.java</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/modificar.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/src/java/paquete/GuardarCalificacion.java</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/index.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/grafica.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/admin.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/lista.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/home.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/juego.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/lista-juegos.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/loginVal.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/registrar.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/src/java/paquete/Login.java</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/login.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/lista-juegos.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/nuevoDiagrama.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/src/java/paquete/ObtenerDiagramas.java</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/global.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/listad.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/juego.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/modificar.js</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/modificarDiagrama.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/src/java/paquete/Admin.java</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/diagramas.html</file>
+            <file>file:/C:/Users/yahar/Documents/GitHub/ProyectoTW/ProyectoTW/web/js/lista.js</file>
         </group>
     </open-files>
 </project-private>

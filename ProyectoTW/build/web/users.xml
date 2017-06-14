@@ -5,7 +5,7 @@
   <user id="1">
     <name>profesor</name>
     <mail>profe@hotmail.com</mail>
-    <pass>profe</pass>
+    <pass>123</pass>
     <type>profesor</type>
   </user>
   <user id="2">
@@ -15,7 +15,7 @@
     <type>admin</type>
   </user>
   <user id="3">
-    <name>Estudiante</name>
+    <name>estudiante</name>
     <mail>estudiante@mail.com</mail>
     <pass>123</pass>
     <type>estudiante</type>
